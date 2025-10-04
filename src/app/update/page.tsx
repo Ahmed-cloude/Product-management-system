@@ -75,45 +75,45 @@ const page = () => {
                     if you do not need to update it
                 </p>
             </div>
-            <form className='flex flex-wrap justify-between  bg-neutral-900 text-white w-[70%]  m-auto'>
+            <form className='flex flex-wrap justify-between  text-white w-[70%]  m-auto'>
 
-                <div className='w-[48%] bg-neutral-900   m-2 '>
+                <div className='w-[48%]    m-2 '>
                     <label  className='w-[100%]  m-2 '>Previos Title <i className='text-fuchsia-500'>{itemData.Title}</i></label><br/>
-                    <input className='bg-slate-800 w-[95%] p-2 m-2   focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
+                    <input className='bg-neutral-800  w-[95%] p-2 m-2   focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
                 </div>
 
-                <div className='w-[48%] bg-neutral-900   m-2 '>
+                <div className='w-[48%]    m-2 '>
                     <label className='w-[100%]'>Previos Price <i className='text-fuchsia-500'>{itemData.Price}</i></label><br/>
-                    <input onChange={onChangeHandler} className='bg-slate-800 w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
+                    <input onChange={onChangeHandler} className='bg-neutral-800 w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
                 </div>
 
-                <div className='w-[48%] bg-neutral-900   m-2 '>
+                <div className='w-[48%]    m-2 '>
                     <label className='w-[100%] m-2'>Previos Tex <i className='text-fuchsia-500'>{itemData.Tex}</i></label><br/>
-                    <input onChange={onChangeHandler} className='bg-slate-800 w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 'type=''/><br/>
+                    <input onChange={onChangeHandler} className='bg-neutral-800  w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 'type=''/><br/>
                 </div>
 
-                <div className='w-[48%] bg-neutral-900   m-2 '>
+                <div className='w-[48%]    m-2 '>
                     <label className='w-[100%] m-2'>Previos ADS<i className='text-fuchsia-500'> {itemData.ADS}</i></label><br/>
-                    <input onChange={onChangeHandler} className='bg-slate-800 w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
+                    <input onChange={onChangeHandler} className='bg-neutral-800  w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
                 </div>
-                <div className='w-[48%] bg-neutral-900   m-2 '>
+                <div className='w-[48%]    m-2 '>
                     <label className='w-[100%] m-2'>Previos Discount<i className='text-fuchsia-500'> {itemData.Discount}</i></label><br/>
-                    <input onChange={onChangeHandler} className='bg-slate-800 w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
+                    <input onChange={onChangeHandler} className='bg-neutral-800  w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
                 </div>
 
-                <div className='w-[48%] bg-neutral-900  m-2 '>
+                <div className='w-[48%]   m-2 '>
                     <label className='w-[100%] m-2'>Previos Amount <i className='text-fuchsia-500'>{itemData.ProductAmount}</i></label><br/>
-                    <input className='bg-slate-800 w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
+                    <input className='bg-neutral-800  w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
                 </div>
 
-                <div className='w-[48%] bg-neutral-900   m-2 '>
+                <div className='w-[48%]    m-2 '>
                     <label className='w-[100%] m-2'>Previos Category <i className='text-fuchsia-500'>{itemData.Category}</i></label><br/>
-                    <input className='bg-slate-800 w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
+                    <input className='bg-neutral-800  w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500 ' type=''/><br/>
                 </div>
 
-                <div className='w-[48%] bg-neutral-900   m-2 '>
+                <div className='w-[48%]    m-2 '>
                     <label className='w-[100%] m-2'>The reason of Updating</label><br/>
-                    <select className='bg-slate-800 w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500'>
+                    <select className='bg-neutral-800 w-[95%] p-2 m-2  focus:outline-none border-b-[2px] border-fuchsia-500'>
                         <option>sale all</option>
                         <option>sale some</option>
                         <option>wrong entered</option>
