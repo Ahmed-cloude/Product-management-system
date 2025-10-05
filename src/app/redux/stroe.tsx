@@ -2,7 +2,7 @@
 import { createStore } from "@reduxjs/toolkit";
 
 const  reducer =  (state={products:[],SBT:false,SBC:false,update:false} , action )=>{
-    if(action.type==='create'){
+    if(action.type==='create' ){
         localStorage.setItem('updatePermision',"false");
         localStorage.setItem("elementUpdated",{})
         const  xx = JSON.parse(localStorage.getItem('productsDB')||null )
@@ -25,11 +25,14 @@ const  reducer =  (state={products:[],SBT:false,SBC:false,update:false} , action
                 return element
             }
         })
-        let FilteredProduct2=xx1.filter((element)=>{
-            if(element.Title !== action.ele.Title ){
-                return element
-            }
-        })
+        let FilteredProduct2={}
+        if(xx1 !== []){
+            FilteredProduct2=xx1.filter((element)=>{
+                if(element.Title !== action.ele.Title ){
+                    return element
+                }
+            })
+        }
         localStorage.setItem('productsDB', JSON.stringify(FilteredProduct));
         localStorage.setItem('filteredProductsDB', JSON.stringify(FilteredProduct2));
         const newState ={
