@@ -9,6 +9,7 @@ export default function ProductList(){
     const [allProducts, setAllProducts] = useState([]);
     const [FilteredProduct, setFilteredProduct] = useState([]);
     useEffect(()=>{
+        // {localStorage.clear()}
         const prods =JSON.parse(localStorage.getItem('productsDB') ||null)
         const xx = JSON.parse(localStorage.getItem('filteredProductsDB'||null) )
         // console.log(prods);
@@ -25,7 +26,7 @@ export default function ProductList(){
                 return (
                     <div key={id} className="flex justify-between my-2 text-center">
                         <div className=" w-[3%] truncate ">{id+1}</div>
-                        <div className=" w-[9%] truncate ">{ele.Title}</div>
+                        <div className=" w-[9%] truncate ">{ele.Title||"unknown"}</div>
                         <div className=" w-[9%] truncate ">{ele.Price || 0}</div>
                         <div className=" w-[9%] truncate ">{ele.Tex || 0}</div>
                         <div className=" w-[9%] truncate ">{ele.ADS ||0}</div>
@@ -55,7 +56,7 @@ export default function ProductList(){
                     return (
                         <div key={id} className="flex justify-between my-2 text-center">
                             <div className=" w-[3%] truncate ">{id+1}</div>
-                            <div className=" w-[9%] truncate ">{ele.Title}</div>
+                            <div className=" w-[9%] truncate ">{ele.Title||"unknown"}</div>
                             <div className=" w-[9%] truncate ">{ele.Price || 0}</div>
                             <div className=" w-[9%] truncate ">{ele.Tex || 0}</div>
                             <div className=" w-[9%] truncate ">{ele.ADS ||0}</div>
