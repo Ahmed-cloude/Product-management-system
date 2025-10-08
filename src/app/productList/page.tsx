@@ -9,10 +9,9 @@ export default function ProductList(){
     const [allProducts, setAllProducts] = useState([]);
     const [FilteredProduct, setFilteredProduct] = useState([]);
     useEffect(()=>{
-        // {localStorage.clear()}
+        // localStorage.clear()
         const prods =JSON.parse(localStorage.getItem('productsDB') ||null)
         const xx = JSON.parse(localStorage.getItem('filteredProductsDB'||null) )
-        // console.log(prods);
         setAllProducts(prods || [])
         setFilteredProduct(xx||[])
     },[Productss])
@@ -37,7 +36,7 @@ export default function ProductList(){
                         <div onClick={()=>patcher({type:'update', ele:ele})} className="bg-blue-800 w-[9%] truncate text-center rounded-full ">
                             <Link href='/update' >Update</Link>
                         </div>
-                        <div onClick={()=>patcher({type:'delete', ele:ele})} className="bg-red-800 w-[9%] truncate text-center rounded-full ">Delete</div>
+                        <div onClick={()=>deleteHandler(ele)} className="bg-red-800 w-[9%] truncate text-center rounded-full ">Delete</div>
                     </div>
                 )
             })
@@ -46,9 +45,6 @@ export default function ProductList(){
     }
 
     const createFilteredList =()=>{
-        // return (
-
-        // )
 
         if(Productss.SBT ){
             return (
@@ -67,7 +63,7 @@ export default function ProductList(){
                             <div onClick={()=>patcher({type:'update', ele:ele})} className="bg-blue-800 w-[9%] truncate text-center rounded-full ">
                                 <Link href='/update' >Update</Link>
                             </div>
-                            <div onClick={()=>patcher({type:'delete', ele:ele})} className="bg-red-800 w-[9%] truncate text-center rounded-full ">Delete</div>
+                            <div onClick={()=>deleteHandler(ele)} className="bg-red-800 w-[9%] truncate text-center rounded-full ">Delete</div>
                         </div>
                         )
                     })
@@ -90,7 +86,7 @@ export default function ProductList(){
                             <div onClick={()=>patcher({type:'update', ele:ele})} className="bg-blue-800 w-[9%] truncate text-center rounded-full ">
                             <Link href='/update' >Update</Link>
                         </div>
-                            <div onClick={()=>patcher({type:'delete', ele:ele})} className="bg-red-800 w-[9%] truncate text-center rounded-full ">Delete</div>
+                            <div onClick={()=>deleteHandler(ele)} className="bg-red-800 w-[9%] truncate text-center rounded-full ">Delete</div>
                         </div>
                         )
                     })
@@ -98,7 +94,11 @@ export default function ProductList(){
         }
         else return crateList()
     }
+    const deleteHandler =(element)=>{
+        localStorage.setItem('deletedItem',JSON.stringify(element))
+        patcher({type:'delete'});
 
+    }
     return (
         <div className=" m-auto w-[1000px] pb-[200px] pt-[20px]">
             <div className="flex justify-between my-2 text-center">

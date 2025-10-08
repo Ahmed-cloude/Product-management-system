@@ -1,7 +1,7 @@
 'use client'
 import { createStore } from "@reduxjs/toolkit";
 
-const  reducer =  (state={products:[],SBT:false,SBC:false,update:false} , action )=>{
+const  reducer =  (state={products:[],SBT:false,SBC:false,update:false , cash:[],installment:[]} , action )=>{
     if(action.type==='create' ){
         localStorage.setItem('updatePermision',"false");
         localStorage.setItem("elementUpdated",{})
@@ -18,17 +18,19 @@ const  reducer =  (state={products:[],SBT:false,SBC:false,update:false} , action
         return newState
     }
     else if(action.type==='delete'){
-        const  xx = JSON.parse(localStorage.getItem('productsDB') )
-        const  xx1 = JSON.parse(localStorage.getItem('filteredProductsDB') )
+        const  xx = JSON.parse(localStorage.getItem('productsDB')||null )
+        const  xx1 = JSON.parse(localStorage.getItem('filteredProductsDB')||null );
+        const deleteItem = JSON.parse(localStorage.getItem('deletedItem')||null );
         let FilteredProduct=xx.filter((element)=>{
-            if(element.Title !== action.ele.Title ){
+            if(element.Title !== deleteItem.Title ){
                 return element
             }
         })
         let FilteredProduct2={}
-        if(xx1 !== []){
+
+        if(xx1 === []){
             FilteredProduct2=xx1.filter((element)=>{
-                if(element.Title !== action.ele.Title ){
+                if(element.Title !== deleteItem.Title ){
                     return element
                 }
             })
@@ -116,6 +118,42 @@ const  reducer =  (state={products:[],SBT:false,SBC:false,update:false} , action
             update:true,
             products:[...deleteItemWhoNeedUpdate]
         }
+    }
+    else if(action.type === 'cash'){
+        const  xx = JSON.parse(localStorage.getItem('paidCash')||null )||[]
+        const newState={
+            ...state,
+            cash:[...xx, action.CPelement]
+        }
+        localStorage.setItem('paidCash',JSON.stringify(newState.cash))
+        return newState
+    }
+    else if(action.type === 'installment'){
+        const  xx = JSON.parse(localStorage.getItem('installmentPaid')||null )||[]
+        const newState={
+            ...state,
+            installment:[...xx, action.installEle]
+        }
+        localStorage.setItem('installmentPaid',JSON.stringify(newState.installment))
+        return newState
+    }
+    else if(action.type=== 'cancelLoan'){
+        const Products= JSON.parse(localStorage.getItem('productsDB')||null);
+        const canceledItem = JSON.parse(localStorage.getItem('cancelLoan')||null);
+        const items= Products.filter((element)=>{
+            if(element.Title === canceledItem.Title){
+                element.ProductAmount= parseInt(element.ProductAmount) + parseInt(canceledItem.AmoutOfSoldProducts)
+            }
+            return element
+        })
+        localStorage.setItem('productsDB',JSON.stringify(items))
+
+        const LoanedProduct = JSON.parse(localStorage.getItem('installmentPaid')||null);
+        const itemsAfterFilter = LoanedProduct.filter((element)=>{
+            if(element.Title !== canceledItem.Title)
+                return element
+        })
+        localStorage.setItem('installmentPaid',JSON.stringify(itemsAfterFilter))
     }
     return state
 }
