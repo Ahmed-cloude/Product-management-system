@@ -1,6 +1,7 @@
 'use client'
 import React,{useEffect, useState} from 'react'
 import  Assistant  from './assistant/page'
+import SideBar from '../sideBar/page'
 const page = () => {
   const [data , setDate] = useState ('')
 
@@ -140,15 +141,19 @@ const page = () => {
   }
 
   return (
-    <div className='min-h-screen bg-slate-900 pb-20'>
-      <div className='w-fit m-auto py-6 text-3xl text-white'>Inventory of Goods</div>
-      <div className='w-fit  m-auto'>
-        <button onClick={()=>setDate('installment')} className='bg-fuchsia-500 w-[200px] p-3 m-3 text-white hover:bg-fuchsia-200 hover:text-fuchsia-700 rounded-full cursor-pointer'>Inventory of installment</button>
-        <button onClick={()=>setDate('Cash')}  className='bg-fuchsia-500 w-[200px] p-3 m-3 text-white hover:bg-fuchsia-200 hover:text-fuchsia-700 rounded-full cursor-pointer'>Inventory of Cash</button>
-        <button onClick={()=>setDate('All')}  className='bg-fuchsia-500 w-[200px] p-3 m-3 text-white hover:bg-fuchsia-200 hover:text-fuchsia-700 rounded-full cursor-pointer'>Inventory of All</button>
-      </div>
-      <div className='text-center'>
-        {clickHandler()}
+
+    <div className='flex bg-slate-800'>
+      <SideBar />
+      <div className='min-h-screen w-[100%] bg-slate-900 pb-20'>
+        <div className='w-fit m-auto py-6 text-3xl text-white'>Inventory of Goods</div>
+        <div className='w-fit  m-auto'>
+          <button onClick={()=>setDate('installment')} className='bg-fuchsia-500 w-[200px] p-3 m-3 text-white hover:bg-fuchsia-200 hover:text-fuchsia-700 rounded-full cursor-pointer'>Inventory of installment</button>
+          <button onClick={()=>setDate('Cash')}  className='bg-fuchsia-500 w-[200px] p-3 m-3 text-white hover:bg-fuchsia-200 hover:text-fuchsia-700 rounded-full cursor-pointer'>Inventory of Cash</button>
+          <button onClick={()=>setDate('All')}  className='bg-fuchsia-500 w-[200px] p-3 m-3 text-white hover:bg-fuchsia-200 hover:text-fuchsia-700 rounded-full cursor-pointer'>Inventory of All</button>
+        </div>
+        <div className='text-center'>
+          {clickHandler()}
+        </div>
       </div>
     </div>
   )
