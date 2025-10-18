@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { FaHome,FaTimes, FaList } from 'react-icons/fa'
+import { FaHome,FaTimes, FaList, FaMoneyBill,FaCoins } from 'react-icons/fa'
 import Link from 'next/link'
 const page = () => {
     const hideHandler =()=>{
@@ -22,8 +22,9 @@ const page = () => {
                 <div className='h-[100vh]  w-fit m-auto pt-4 sticky top-0'>
                     <div onClick={hideHandler} className='text-fuchsia-500/60 p-3 my-1 hover:bg-fuchsia-500 hover:text-white cursor-pointer rounded-[20px]'><FaTimes className='text-3xl ' /></div>
                     <div className='text-fuchsia-500 p-3 my-1  hover:bg-fuchsia-500/60 hover:text-white cursor-pointer rounded-[20px]'> <Link href="/"><FaHome className='text-3xl' /></Link> </div>
-                    <div className='text-fuchsia-500 py-3 my-1 hover:bg-fuchsia-500/60 hover:text-white cursor-pointer rounded-[20px]'> <Link href='/loan'>Loan</Link> </div>
                     <div className='text-fuchsia-500 py-3 my-1 hover:bg-fuchsia-500/60 hover:text-white cursor-pointer rounded-[20px]'> <Link href="/sold">Sold</Link> </div>
+                    <div className='text-fuchsia-500 py-3 my-1 hover:bg-fuchsia-500/60 hover:text-white cursor-pointer rounded-[20px]'> <Link href='/loan'>Loan</Link> </div>
+                    <div className='text-fuchsia-500 p-3 my-1 hover:bg-fuchsia-500/60 hover:text-white cursor-pointer rounded-[20px] '> <Link href='/inventory'><FaCoins className='text-3xl' /></Link> </div>
                 </div>
             </div>
         </div>

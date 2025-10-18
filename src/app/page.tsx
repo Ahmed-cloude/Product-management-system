@@ -8,9 +8,8 @@ export default function Home() {
     
       <div className='flex min-h-screen bg-slate-800 text-white font-mono '>
         <SideBar />
-       
         <div className=' w-[100%]'>
-          <h1 className='w-fit m-auto py-4'>PRODUCT MANAGEMENT STSTEM</h1>
+          <div className='w-fit m-auto py-5 text-4xl '>PRODUCT MANAGEMENT STSTEM</div>
           <Form />
           <ProductList />
         </div>
